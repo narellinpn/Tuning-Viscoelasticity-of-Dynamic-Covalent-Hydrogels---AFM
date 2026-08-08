@@ -1,3 +1,7 @@
+This work is published at De Paiva Narciso N., Christakopoulos F., Huang M., Baugh N., Huerta-Lopez C., Matos E.X., Pashin K.P., Spakowitz A.J., Heilshorn S.C. “Tuning viscoelasticity of dynamic covalent hydrogels for human tissue modeling.” Accepted & In production. Advanced Functional Materials, 2026, 10.1002/adfm.76427
+
+It is also at the Stanford Repository 	https://doi.org/10.25740/hg746sr4717.
+
 HELP hydrogel System - One Polymer with LCST 
 
 For the SLS 1 term fit
