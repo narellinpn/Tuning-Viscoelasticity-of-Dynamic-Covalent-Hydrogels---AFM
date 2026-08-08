@@ -1,0 +1,40 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2870
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 ArialMT;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 For the SLS 1 term fit\
+\
+First you need to run the Free_MW_q_Fits_of_the_averages_12h.m, specifically for the q = 1, that is the DCC hydrogel system that in which the two polymers have the same size (matched).\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Within it you will change the folder path to the specific averaged (n>=3 runs) normalized stress relaxation data in Time (s) and Stress (Pa) in an excel sheet - data MUST be pre-processed! \
+\
+This free fit will provide you with the characteristic relaxation time tau_0 that will be scaled by the Q factor for your formulations with mismatched polymer sizes. \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+You will need to alter the function SLS_relax_Funct_General_1_term_Set_Tau_XXk_XXh.m with the specific tau value calculated from the q = MW_HA/ MW_ELP times the tau_0 which is the characteristic relaxation time obtained from the SLS-1 term free fit at q=1. Tau values will be in seconds.\
+\
+If your stress relaxation was not performed at 10% strain, you will also need to alter the strain in each of the\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 SLS_relax_Funct_General_1_term_Set_Tau_XXk_XXh.m functions.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+Once you have updated your values, you will need to run the Set_tau_MW_q_Fits_of_the_averages_12h.m, by updating the folder paths to your specific data, again all data must be normalized and pre-processed. \
+\
+All other functions are secondary to allow this system to be performed at multiple excel files within a folder at once.\
+\
+This fitting system uses a MultiStart built-in function to test multiple 500 starting points and find a global solution - the properties of this are found on file all_fits_lsqcurvefit_MultiStart_SLS_1_only_set_tau.m\
+\
+If the system fails to find a fit, change the p_init_SLS_1 array value and/or increase the number of runs in line 46.\
+\
+As it processes, they will generate graphs so you can assess the fit.\
+\
+After each analysis, the script creates two excel files:\
+- One contains all the coefficients of the fits as well as R^2 - for example: 20kDa HA 12% BZA @ 10% Strain - Set Tau - run 1 - Coefficients SLS 1 only.xls\
+- One contains the original data and fitted data - for example: 20kDa HA 12% BZA @ 10% Strain - Set Tau - run 1 - All Fits - SLS 1 Only.xls\
+ \
+\
+}
